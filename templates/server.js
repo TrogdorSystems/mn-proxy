@@ -27,11 +27,11 @@ http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/') {
     let components = renderComponents(services);
     res.end(layout(script(serviceConfig, components)));
-  } else if (req.method === 'GET' && req.url === '/SummaryView-bundle.js') {
+  } else if (req.url === '/SummaryView-bundle.js') {
     const readStream = fs.createReadStream(path.join(__dirname, '../dist/SummaryView-bundle.js'), 'utf8');
     res.writeHead(200, { 'Content-Type': 'text/javascript' });
     readStream.pipe(res);
-  } else if (req.method === 'GET' && req.url.startsWith('/restaurants')) {
+  } else if (req.url.startsWith('/restaurants')) {
     axios({
       method: 'get',
       url: `http://localhost:8082${req.url}`,
@@ -41,7 +41,7 @@ http.createServer((req, res) => {
     }).catch(error => {
       console.error(error);
     });
-  } else if (req.method === 'GET' && req.url.match('.css')) {
+  } else if (req.url.match('.css')) {
     axios({
       method: 'get',
       url: `http://localhost:8082${req.url}`,
