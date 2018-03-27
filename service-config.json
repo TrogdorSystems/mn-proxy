@@ -1,0 +1,9 @@
+{
+  "SummaryView": 
+    {
+      "name": "summary",
+      "url": "http://localhost:8082",
+      "client": "SummaryView-bundle",
+      "server": "SummaryView-bundle-server"
+    }
+}
