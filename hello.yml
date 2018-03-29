@@ -1,10 +1,10 @@
 config:
-  target: "http://localhost:3000"
+  target: "http://ec2-13-56-139-147.us-west-1.compute.amazonaws.com"
   http:
-    pool: 100
+    pool: 10
   phases:
     - duration: 20
-      arrivalRate: 100
+      arrivalRate: 10
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
@@ -12,6 +12,6 @@ scenarios:
   - flow:
     - loop:
       - get:
-          url: '/'
-      count: 1000
+          url: '/restaurants/305'
+      count: 100
       

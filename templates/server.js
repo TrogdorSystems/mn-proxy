@@ -34,7 +34,7 @@ http.createServer((req, res) => {
   } else if (req.url.startsWith('/restaurants')) {
     axios({
       method: 'get',
-      url: `http://localhost:8082${req.url}`,
+      url: `http://ec2-54-183-93-245.us-west-1.compute.amazonaws.com${req.url}`,
     }).then(response => {
       res.writeHead(200, { 'Content-Type': 'application/json' })
       res.end(JSON.stringify(response.data));
@@ -44,7 +44,7 @@ http.createServer((req, res) => {
   } else if (req.url.match('.css')) {
     axios({
       method: 'get',
-      url: `http://localhost:8082${req.url}`,
+      url: `http://ec2-54-183-93-245.us-west-1.compute.amazonaws.com${req.url}`,
     }).then(response => {
       res.writeHead(200, { 'Content-Type': 'text/css' })
       res.end(response.data);
